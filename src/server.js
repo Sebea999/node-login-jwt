@@ -4,12 +4,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'ASDFAS48941*#@485DFSasdfsad8594fdfdd999';
+const configVars = require('./config.js');
+const JWT_SECRET = configVars.JWT_SECRET;
 // model
 const User = require('./model/user.js');
 
-const db_pass = 'rKzGMzRuVlTMeUhg';
-mongoose.connect(`mongodb+srv://usermongodb:${db_pass}@db-agend.bja3uzu.mongodb.net/?retryWrites=true&w=majority`, {
+mongoose.connect(`mongodb+srv://${configVars.DB_USER}:${configVars.DB_PASSWORD}@${configVars.DB_DATABASE}.bja3uzu.mongodb.net/?retryWrites=true&w=majority`, {
     useNewUrlParser: true, 
     useUnifiedTopology: true//, 
    // useCreateIndex: true
@@ -131,6 +131,6 @@ app.post('/api/register', async (req, res) => {
     
 });
 
-app.listen(9999, () => {
-    console.log('Server up at 9999');
+app.listen(configVars.PORT, () => {
+    console.log('Server up at ', configVars.PORT);
 });

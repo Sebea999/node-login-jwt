@@ -8,7 +8,7 @@ const JWT_SECRET = 'ASDFAS48941*#@485DFSasdfsad8594fdfdd999';
 // model
 const User = require('./model/user.js');
 
-const db_pass = '123';
+const db_pass = 'rKzGMzRuVlTMeUhg';
 mongoose.connect(`mongodb+srv://usermongodb:${db_pass}@db-agend.bja3uzu.mongodb.net/?retryWrites=true&w=majority`, {
     useNewUrlParser: true, 
     useUnifiedTopology: true//, 
